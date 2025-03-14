@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Home = () => {
   return (
@@ -28,9 +28,11 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
       >
-        <Button className="px-6 py-3 text-lg bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md">
-          Get Started
-        </Button>
+        <Link href="/dashboard">
+          <button className="px-6 py-3 text-lg bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md">
+            Get Started
+          </button>
+        </Link>
       </motion.div>
     </div>
   );
