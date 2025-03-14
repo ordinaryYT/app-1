@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -28,7 +28,7 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
       >
-        <Link href="/dashboard">
+        <Link to="/dashboard">
           <button className="px-6 py-3 text-lg bg-blue-600 hover:bg-blue-700 rounded-lg shadow-md">
             Get Started
           </button>
@@ -38,4 +38,23 @@ const Home = () => {
   );
 };
 
-export default Home;
+const Dashboard = () => {
+  return (
+    <div className="min-h-screen flex items-center justify-center text-white text-3xl">
+      Dashboard Page (Coming Soon)
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
